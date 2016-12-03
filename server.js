@@ -11,5 +11,5 @@ app.get('/', function (req, res) {
 var server = app.listen(port, function () {
    var port = server.address().port
    
-   console.log("Example app listening at http://localhost:%s", host, port)
+   console.log("Example app listening at http://localhost:%s", port)
 })
