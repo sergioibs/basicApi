@@ -25,7 +25,6 @@ app.get('/write', function(req, res) {
             res.send('ERROR');
         }
     });
-    res.send('Hello World');
 })
 
 mongoose.connect(process.env.MONGOLAB_URI, function (error) {
