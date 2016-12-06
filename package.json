@@ -8,7 +8,8 @@
     "cookie-parser": "~1.4.3",
     "express": "~4.14.0",
     "multer": "~1.2.0",
-    "mongoose": "^4.7.1"
+    "mongoose": "^4.7.1",
+    "json2xls": "^0.1.2"
   },
   "devDependencies": {},
   "scripts": {

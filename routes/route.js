@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express();
 var measureModel = require('../models/measure.js');
+var json2xls = require('json2xls');
+var fs = require('fs');
 
 router.get('/', function(req, res) {
     console.log("Resquest to / recieved from: " + req.header('x-forwarded-for'));
@@ -28,8 +30,12 @@ router.get('/write', function(req, res) {
 router.get('/getXls', function(req, res) {
     console.log('getXls');
     measureModel.find().then(function(data) {
+            var xls = json2xls(data, {
+                fields: ['simId','temperature','timestamp']
+            });
+            fs.writeFileSync('data.xlsx', xls, 'binary');
             res.status(200);
-            res.send(data);
+            res.download('data.xlsx');
         })
         .catch(function(err) {
             // just need one of these
