@@ -6,6 +6,7 @@ var mongoose = require('mongoose');
 
 app.get('/', function(req, res) {
     console.log("Resquest to / recieved from: " + req.header('x-forwarded-for'));
+    console.log(process.env.MONGOLAB_URI);
     res.send('Server running');
 })
 
@@ -29,7 +30,7 @@ app.get('/write', function(req, res) {
 
 mongoose.connect(process.env.MONGOLAB_URI, function (error) {
     if (error) console.error(error);
-    else console.log('mongo connected');
+    else console.log('Mongo connected');
 });
 
 var server = app.listen(port, function() {
