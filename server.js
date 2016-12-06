@@ -6,7 +6,6 @@ var mongoose = require('mongoose');
 
 app.get('/', function(req, res) {
     console.log("Resquest to / recieved from: " + req.header('x-forwarded-for'));
-    console.log(process.env.MONGOLAB_URI);
     res.send('Server running');
 })
 
@@ -27,7 +26,7 @@ app.get('/write', function(req, res) {
     });
 })
 
-mongoose.connect(process.env.MONGOLAB_URI, function (error) {
+mongoose.connect(process.env.MONGOLAB_URI|| "mongodb://example:example@ds119578.mlab.com:19578/heroku_9cwhf02h", function (error) {
     if (error) console.error(error);
     else console.log('Mongo connected');
 });
