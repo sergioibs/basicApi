@@ -7,7 +7,7 @@ var mongoose = require('mongoose');
 // Add routes 
 app.use('/', routes);
 
-mongoose.connect(process.env.MONGODB_URI|| "mongodb://example:example@ds119578.mlab.com:19578/heroku_9cwhf02h", function (error) {
+mongoose.connect(process.env.MONGODB_URI, function (error) {
     if (error) console.error(error);
     else console.log('Mongo connected');
 });
